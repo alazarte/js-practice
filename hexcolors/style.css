@@ -8,3 +8,7 @@
 .hexText {
     font-size: large;
 }
+
+#error {
+    color: red;
+}

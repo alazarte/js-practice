@@ -3,6 +3,7 @@ document.getElementById("submitBtn").
 
 const canvasHistory = document.getElementById("canvasHistory");
 const colors = new Map();
+const errorDiv = document.getElementById("error");
 
 function handleClick() {
     const hexColor = document.getElementById("input").value;
@@ -12,10 +13,11 @@ function handleClick() {
     //  - if 3 then translate that to 6 so easier to parse for white or black
     //  font
     //  - also #fff and #ffffff will be repeated in the map
-    if (! /^#[a-z0-9]{3,6}$/.test(hexColor)) {
-        console.log("Invalid input");
+    if (! /^#[a-f0-9]{3,6}$/.test(hexColor)) {
+        errorDiv.innerHTML = "Invalid input";
         return;
     }
+    errorDiv.innerHTML = "";
 
     if(colors.get(hexColor)) {
         return;
