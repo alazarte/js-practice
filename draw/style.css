@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+}
+
+.point {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background-color: red;
+}

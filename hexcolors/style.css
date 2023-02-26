@@ -1,0 +1,10 @@
+.canvas {
+    height: 100px;
+    width: 100%;
+
+    text-align: center;
+}
+
+.hexText {
+    font-size: large;
+}

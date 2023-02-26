@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <select onchange="return changeThings(event)" id="thingsSelect">
+      <option value="movies" default>Movies</option>
+      <option value="fruits">Fruits</option>
+      <option value="books">Books</option>
+    </select>
+    <input type="text" id="input" onkeyup="return filterThings()" />
+    <br />
+    <br />
+    <div id="things">
+    </div>
+    <script src="./things.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>
