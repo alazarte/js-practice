@@ -1,6 +1,6 @@
 const body = document.getElementById("body");
 
-const nProblems = 10;
+const nProblems = 11;
 const ul = document.createElement("ul");
 for (let i=1; i<=nProblems; i++) {
     const li = document.createElement("li");
