@@ -77,55 +77,41 @@ function evalOp(s) {
     return numbers;
 }
 
+function parseItems(line) {
+    const r = /[0-9]+/g;
+    const items = [];
+    while(m = r.exec(line)) {
+        items.push(m[0]);
+    }
+
+    return items;
+}
+
+function parseInput(text) {
+    const monkeys = [];
+    lines = text.split("\n");
+    for (let i=0; i<lines.length; i+=7) {
+        let monkey = {};
+        monkey.items = parseItems(lines[i+1]);
+        monkey.operation = lines[i+2].split(":")[1].trim();
+        monkey.test = {};
+        tests = parseItems(lines.slice(i+3, i+5));
+        monkey.test.divisible = parseItems(lines[i+3])[0];
+        monkey.test.true = parseItems(lines[i+4])[0];
+        monkey.test.false = parseItems(lines[i+5])[0];
+        monkey.inspections = 0;
+        monkeys.push(monkey);
+    }
+
+    return monkeys;
+}
 
 // the actual problem
 function handleSubmit() {
     const input = document.getElementById("input").value;
     const outputDiv = document.getElementById("output");
 
-    // TODO: parse from input instead
-    const monkeys = [
-        {
-            items: [79, 98],
-            operation: "new = old * 19",
-            test: {
-              divisible: 23,
-              true: 2,
-              false: 3,
-              },
-            inspections: 0,
-          },
-          {
-            items: [54, 65, 75, 74],
-            operation: "new = old + 6",
-            test: {
-              divisible: 19,
-              true: 2,
-              false: 0,
-              },
-            inspections: 0,
-          },
-          {
-            items: [79, 60, 97],
-            operation: "new = old * old",
-            test: {
-              divisible: 13,
-              true: 1,
-              false: 3,
-              },
-            inspections: 0,
-          },
-          {
-            items: [74],
-            operation: "new = old + 3",
-            test: {
-              divisible: 17,
-              true: 0,
-              false: 1,
-              },
-            inspections: 0,
-          }
-    ];
+    monkeys = parseInput(input);
 
     let supermod = 1;
     for(let monkey of monkeys) {
