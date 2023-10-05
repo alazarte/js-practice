@@ -4,10 +4,40 @@
   </head>
   <body>
     <form onSubmit="return false">
-      <input type="text" id="input" />
-      <input type="submit" onclick="handleClick" id="submitBtn"/>
-      <span id="error">
-      </span>
+      <table>
+        <tr>
+          <td>
+            <input type="text" id="bannerColor" />
+          </td>
+          <td>
+            <input type="submit" onclick="handleClick" id="submitBtn" value="New banner"/>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" id="fgColor" />
+          </td>
+          <td>
+            <button onclick="setAsFg()">Set as Foreground</button>
+            <td>
+        </tr>
+        <tr>
+          <td>
+            <span id="error">
+            </span>
+          </td>
+          <td>
+            <button id="switchCanvas" onclick="switchColorsCanvas()">Switch colors in canvas</button>
+          </td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <button id="appendRandom" onclick="randomColor()">Random color</button>
+          </td>
+        </tr>
+      </table>
     </form>
     <div id="canvasHistory">
     </div>
